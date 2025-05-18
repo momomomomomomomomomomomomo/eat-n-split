@@ -38,7 +38,9 @@ export default function App() {
     const balance = payer === "you" ? bill - yourExpense : -yourExpense;
     setFriendsList((friendsList) =>
       friendsList.map((friend) =>
-        friend.id === curID ? { ...friend, balance } : friend
+        friend.id === curID
+          ? { ...friend, balance: friend.balance + balance }
+          : friend
       )
     );
     setCurID("");
